@@ -7,6 +7,7 @@ import { MyOrder } from '../MyOrder/index'
 import { MyOrders } from '../MyOrders/index'
 import { NotFound } from '../NotFound/index'
 import { SignIn } from '../SignIn/index'
+import { NavBar } from '../../components/navBar/index'
 //import { useState } from 'react'
 import '../App/App.css'
 
@@ -28,6 +29,7 @@ function App() {
   return (
     <BrowserRouter>
       <AppRoutes />
+      <NavBar />
     </BrowserRouter>
   )
 }
