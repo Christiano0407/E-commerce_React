@@ -7,5 +7,5 @@ export function Layout({ children }) {
 
 //**? == */
 Layout.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.array.isRequired,
 }
