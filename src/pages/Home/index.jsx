@@ -1,3 +1,5 @@
+import { Layout } from '../../components/Layout/index'
+
 export function Home() {
-  return <div className="">Home</div>
+  return <Layout className="">Home</Layout>
 }

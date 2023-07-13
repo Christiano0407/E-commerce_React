@@ -1,3 +1,5 @@
+import { Layout } from '../../components/Layout/index'
+
 export function MyOrder() {
-  return <div>My Order</div>
+  return <Layout>My Order</Layout>
 }

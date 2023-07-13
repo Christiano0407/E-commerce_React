@@ -9,7 +9,7 @@ export const NavBar = () => {
 
   return (
     <header className="w-full">
-      <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 text-sm font-light">
+      <nav className="flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light">
         <ul className="flex items-center gap-3">
           <li className="font-bold text-lg">
             <NavLink to="/">Shopi</NavLink>
@@ -94,7 +94,7 @@ export const NavBar = () => {
           </li>
           <li>
             <NavLink to="/my-order">
-              <FaCartShopping /> <span>0</span>
+              <FaCartShopping />
             </NavLink>
           </li>
         </ul>
