@@ -1,11 +1,25 @@
+import { useState, useEffect } from 'react'
 import { Layout } from '../../components/Layout/index'
 import { Card } from '../../components/Card'
 
 export function Home() {
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    fetch('https://api.escuelajs.co/api/v1/products')
+      .then((response) => response.json())
+      .then((data) => setData(data))
+  }, [])
+
   return (
     <Layout className="">
       <h1>Home</h1>
-      <Card />
+      <div className="grid gap-4  w-full max-w-screen-lg mob:grid-cols-1  sm:grid-cols-2  md:grid-cols-4 ">
+        {data?.map((item) => (
+          <Card key={item.id} data={item} />
+        ))}
+      </div>
     </Layout>
   )
 }
+//** > "()" == return < */
