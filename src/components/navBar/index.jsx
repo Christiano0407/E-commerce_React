@@ -2,10 +2,14 @@
 //import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaCartShopping } from 'react-icons/fa6'
+import { useContext } from 'react'
+import { ShoppingCartContext } from '../../context'
 
 //** === NavBar ===  */
 export const NavBar = () => {
   const activeStyle = 'underline underline-offset-4'
+
+  const context = useContext(ShoppingCartContext)
 
   return (
     <header className="w-full">
@@ -93,9 +97,10 @@ export const NavBar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/my-order">
-              <FaCartShopping />
-            </NavLink>
+            <FaCartShopping />{' '}
+            <span className="text-black/60  text-base font-semibold ">
+              {context.count}
+            </span>
           </li>
         </ul>
       </nav>

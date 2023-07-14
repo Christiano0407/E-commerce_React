@@ -1,11 +1,22 @@
 //**=== Context Global ===  */
-import { createContext } from 'react'
+import { createContext, useState } from 'react'
 import PropTypes from 'prop-types'
 //**! => Call Context */
-const ShoppingCartContext = createContext()
+export const ShoppingCartContext = createContext() // => Export
 
 export function ShoppingCartProvider({ children }) {
-  return <ShoppingCartContext.Provider>{children}</ShoppingCartContext.Provider>
+  const [count, setCount] = useState(0)
+
+  return (
+    <ShoppingCartContext.Provider
+      value={{
+        count,
+        setCount,
+      }}
+    >
+      {children}
+    </ShoppingCartContext.Provider>
+  )
 }
 
 //**? == */
