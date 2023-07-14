@@ -18,8 +18,8 @@ export function Card({ data }) {
           <FaPlus />
         </div>
       </figure>
-      <p className="flex justify-between items-center w-[90%] my-0 mx-auto">
-        <span className="text-md font-normal">{data.title}</span>
+      <p className="flex justify-evenly items-center w-[90%] my-0 mx-auto">
+        <span className="font-light text-sm ">{data.title}</span>
         <span className="text-md font-bold">${data.price}</span>
       </p>
     </div>

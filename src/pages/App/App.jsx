@@ -1,5 +1,7 @@
 //** ==== Router DOM  Import ====  */
 import { useRoutes, BrowserRouter } from 'react-router-dom'
+//**! === Context Global Provider === */
+import { ShoppingCartProvider } from '../../context'
 //** ==== Modules Imports & Components  ====  */
 import { Home } from '../Home'
 import { MyAccount } from '../MyAccount/index'
@@ -27,10 +29,12 @@ const AppRoutes = () => {
 //** === APP === */
 function App() {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-      <NavBar />
-    </BrowserRouter>
+    <ShoppingCartProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <NavBar />
+      </BrowserRouter>
+    </ShoppingCartProvider>
   )
 }
 
