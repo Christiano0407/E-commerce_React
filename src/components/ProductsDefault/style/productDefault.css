@@ -1,0 +1,11 @@
+.productDefault {
+  width: 366px;
+  /* height: 100vh; */
+  height: calc(100vh - 68px);
+  position: fixed;
+  z-index: 10;
+  border: solid 2px #333;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  top: 68px;
+}
