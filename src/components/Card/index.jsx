@@ -8,7 +8,10 @@ export function Card({ data }) {
   const context = useContext(ShoppingCartContext)
 
   return (
-    <div className="bg-white p-2  cursor-pointer w-full h-60 border-solid border-black  border-[3px] rounded-lg ">
+    <div
+      className="bg-white p-2  cursor-pointer w-full h-60 border-solid border-black  border-[3px] rounded-lg "
+      onClick={() => context.openProductDetails()}
+    >
       <figure className="relative mb-2 w-full h-4/5">
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs font-semibold m-2 p-1">
           {data.category.name}

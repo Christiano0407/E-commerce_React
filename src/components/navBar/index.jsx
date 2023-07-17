@@ -96,9 +96,11 @@ export const NavBar = () => {
               Sign In
             </NavLink>
           </li>
-          <li>
-            <FaCartShopping />{' '}
-            <span className="text-black/60  text-base font-semibold ">
+          <li className="">
+            <button className="p-[10px]">
+              <FaCartShopping />
+            </button>
+            <span className="text-black/60  text-base font-semibold relative bottom-[15px] right-[10px]">
               {context.count}
             </span>
           </li>
