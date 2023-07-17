@@ -17,7 +17,7 @@ export function Home() {
     <Layout className="">
       <h1>Home</h1>
       <div className="grid gap-4  w-full max-w-screen-xl mob:grid-cols-1  sm:grid-cols-2  md:grid-cols-4 ">
-        {data?.slice(0, 20).map((item) => (
+        {data?.slice(0, 30).map((item) => (
           <Card key={item.id} data={item} />
         ))}
       </div>

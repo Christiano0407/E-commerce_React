@@ -10,6 +10,8 @@ export function ShoppingCartProvider({ children }) {
   //  = Card - Open or Close Detail Products  =
   const openProductDetails = () => setStateProductOpen(true)
   const closeProductDetails = () => setStateProductOpen(false)
+  // = Product Detail - Show Product =
+  const [productToShow, setProductToShow] = useState({})
 
   return (
     <ShoppingCartContext.Provider
@@ -19,6 +21,8 @@ export function ShoppingCartProvider({ children }) {
         openProductDetails,
         closeProductDetails,
         isProductOpen,
+        productToShow,
+        setProductToShow,
       }}
     >
       {children}

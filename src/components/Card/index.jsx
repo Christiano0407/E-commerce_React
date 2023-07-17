@@ -3,22 +3,29 @@ import { useContext } from 'react'
 import { ShoppingCartContext } from '../../context'
 import PropTypes from 'prop-types'
 import { FaPlus } from 'react-icons/fa'
+import './style/card.css'
 
 export function Card({ data }) {
   const context = useContext(ShoppingCartContext)
 
+  const showProducts = (productDetail) => {
+    context.openProductDetails()
+    context.setProductToShow(productDetail)
+  }
+
   return (
     <div
-      className="bg-white p-2  cursor-pointer w-full h-60 border-solid border-black  border-[3px] rounded-lg "
-      onClick={() => context.openProductDetails()}
+      key={data.id}
+      className="bg-white p-2  cursor-pointer w-full h-60 rounded-lg  card-hover "
+      onClick={() => showProducts(data)}
     >
       <figure className="relative mb-2 w-full h-4/5">
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs font-semibold m-2 p-1">
-          {data.category.name}
+          {data.title}
         </span>
         <img
-          src={data.category.image}
-          alt={data.category.name}
+          src={data.images[0]}
+          alt={data.title}
           className="w-full h-full object-cover bg-center bg-cover  bg-no-repeat rounded-lg "
         />
         <div>

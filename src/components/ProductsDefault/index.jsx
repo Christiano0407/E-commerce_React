@@ -12,6 +12,7 @@ import './style/productDefault.css'
 
 export function ProductsDefault() {
   const context = useContext(ShoppingCartContext)
+  // console.log('State: ProductToShow', context.productToShow)
 
   return (
     <aside
@@ -34,12 +35,27 @@ export function ProductsDefault() {
             <FaShareNodes />
           </li>
           <li>
-            <button className="p-[5px] active:scale-90">
+            <button
+              className="p-[5px] active:scale-90"
+              onClick={() => context.closeProductDetails()}
+            >
               <FaCircleXmark />
             </button>
           </li>
         </ul>
       </div>
+      <figure>
+        <img
+          className="w-full h-full rounded-lg object-cover bg-center bg-cover  bg-no-repeat"
+          src={context.productToShow.images}
+          alt={context.productToShow.title}
+        />
+      </figure>
+      <p>
+        <span>${context.productToShow.title}</span>
+        <span>${context.productToShow.price}</span>
+        <span>${context.productToShow.description}</span>
+      </p>
     </aside>
   )
 }
