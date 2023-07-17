@@ -18,7 +18,7 @@ export function ProductsDefault() {
     <aside
       className={`${
         context.isProductOpen ? `flex ` : `hidden`
-      } productDefault flex-col right-0 p-3  bg-[#f2f2f2] `}
+      } productDefault flex-col right-0 p-[20px]  bg-[#f2f2f2] `}
     >
       <div className=" p-1">
         <ul className=" p-1 flex justify-between items-center">
@@ -44,18 +44,29 @@ export function ProductsDefault() {
           </li>
         </ul>
       </div>
-      <figure>
+      <figure className="my-4 mx-auto h-[60%]">
         <img
           className="w-full h-full rounded-lg object-cover bg-center bg-cover  bg-no-repeat"
-          src={context.productToShow.images}
+          src={context.productToShow.images[0]}
           alt={context.productToShow.title}
         />
       </figure>
-      <p>
-        <span>${context.productToShow.title}</span>
-        <span>${context.productToShow.price}</span>
-        <span>${context.productToShow.description}</span>
-      </p>
+      <section className="my-4 mx-auto  p-2 flex flex-col ">
+        <p className="my-2 text-black font-bold  text-lg">
+          ${context.productToShow.title}
+        </p>
+        <p className="my-2 text-black/50 font-normal text-base">
+          ${context.productToShow.description}
+        </p>
+        <div className=" w-full flex justify-evenly items-center my-2 mx-auto p-1">
+          <span className="text-black font-extrabold text-lg ">
+            ${context.productToShow.price}
+          </span>
+          <button className="bg-black text-white  p-[10px] text-base rounded-lg border-none ">
+            Buy Now
+          </button>
+        </div>
+      </section>
     </aside>
   )
 }

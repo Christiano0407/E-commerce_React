@@ -11,7 +11,12 @@ export function ShoppingCartProvider({ children }) {
   const openProductDetails = () => setStateProductOpen(true)
   const closeProductDetails = () => setStateProductOpen(false)
   // = Product Detail - Show Product =
-  const [productToShow, setProductToShow] = useState({})
+  const [productToShow, setProductToShow] = useState({
+    title: '',
+    price: '',
+    description: '',
+    images: [],
+  })
 
   return (
     <ShoppingCartContext.Provider
