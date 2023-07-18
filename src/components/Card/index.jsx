@@ -62,6 +62,7 @@ export function Card({ data }) {
       <p className="flex justify-evenly items-center w-[90%] my-0 mx-auto">
         <span className="font-light text-sm ">{data.title}</span>
         <span className="text-md font-bold">${data.price}</span>
+        <span>Pay</span>
       </p>
     </div>
   )
