@@ -10,6 +10,7 @@ import { MyOrders } from '../MyOrders/index'
 import { NotFound } from '../NotFound/index'
 import { SignIn } from '../SignIn/index'
 import { NavBar } from '../../components/navBar/index'
+import { CheckoutSideMenu } from '../../components/CheckoutSideMenu'
 //import { useState } from 'react'
 import '../App/App.css'
 
@@ -33,6 +34,7 @@ function App() {
       <BrowserRouter>
         <AppRoutes />
         <NavBar />
+        <CheckoutSideMenu />
       </BrowserRouter>
     </ShoppingCartProvider>
   )

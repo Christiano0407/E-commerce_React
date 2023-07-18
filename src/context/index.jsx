@@ -3,7 +3,7 @@ import { createContext, useState } from 'react'
 import PropTypes from 'prop-types'
 //**! => Call Context */
 export const ShoppingCartContext = createContext() // => Export
-
+//**! === Shopping Cart ===  */
 export function ShoppingCartProvider({ children }) {
   const [count, setCount] = useState(0)
   const [isProductOpen, setStateProductOpen] = useState(false)
@@ -17,6 +17,15 @@ export function ShoppingCartProvider({ children }) {
     description: '',
     images: [],
   })
+  // = Add Products  => Cart Shop =
+  const [cartProducts, setCartProduct] = useState([])
+
+  // == Shop Pay Open or Close ==
+  const [isCheckoutSideShopOpen, setCheckoutSideShopOpen] = useState(false)
+  const openShop = () => setCheckoutSideShopOpen(true)
+  const closeShop = () => setCheckoutSideShopOpen(false)
+
+  const [payCheckoutShop, setPayCheckoutShop] = useState({})
 
   return (
     <ShoppingCartContext.Provider
@@ -28,6 +37,14 @@ export function ShoppingCartProvider({ children }) {
         isProductOpen,
         productToShow,
         setProductToShow,
+        cartProducts,
+        setCartProduct,
+        isCheckoutSideShopOpen,
+        setCheckoutSideShopOpen,
+        openShop,
+        closeShop,
+        payCheckoutShop,
+        setPayCheckoutShop,
       }}
     >
       {children}
@@ -37,5 +54,5 @@ export function ShoppingCartProvider({ children }) {
 
 //**? == */
 ShoppingCartProvider.propTypes = {
-  children: PropTypes.array.isRequired,
+  children: PropTypes.object.isRequired,
 }
