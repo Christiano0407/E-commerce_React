@@ -21,6 +21,8 @@ export function CheckoutSideMenu() {
       (product) => product.id != id
     )
     context.setCartProduct(filterProduct)
+
+    context.setCount(context.count - 1)
   }
 
   return (
