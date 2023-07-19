@@ -2,7 +2,7 @@
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../context'
 import PropTypes from 'prop-types'
-import { FaPlus } from 'react-icons/fa'
+import { FaPlus, FaCheck } from 'react-icons/fa'
 import './style/card.css'
 
 export function Card({ data }) {
@@ -22,15 +22,32 @@ export function Card({ data }) {
     // context.closeShop()
   }
   // == Show Add Cart ==
-  /* const showAddShopCart = (shopProduct) => {
-    context.openShop()
-    context.setCheckoutSideShopOpen(shopProduct)
-    context.setPayCheckoutShop(shopProduct)
-  } */
-  /* const showAddCart = (productPayShop) => {
-    context.setPayCheckoutShop(productPayShop)
+  const renderCheckIcon = (id) => {
+    const isInCart =
+      context.cartProducts.filter((product) => product.id === id).length > 0
+
+    if (isInCart) {
+      return (
+        <button className="absolute top-[10px] right-[10px] flex justify-center items-center bg-white  text-green-500 w-6 h-6 rounded-full   active:scale-90 ">
+          <FaCheck />
+        </button>
+      )
+    } else {
+      return (
+        <button
+          className="absolute top-[10px] right-[10px] flex justify-center items-center bg-white w-6 h-6 rounded-full   active:scale-90 "
+          onClick={(event) => {
+            addProductCart(event, data)
+            /*  showAddShopCart(data) */
+            /*  showAddCart(data) */
+          }}
+        >
+          <FaPlus />
+        </button>
+      )
+    }
   }
- */
+
   return (
     <div
       key={data.id}
@@ -46,18 +63,7 @@ export function Card({ data }) {
           alt={data.title}
           className="w-full h-full object-cover bg-center bg-cover  bg-no-repeat rounded-lg "
         />
-        <div>
-          <button
-            className="absolute top-[10px] right-[10px] flex justify-center items-center bg-white w-6 h-6 rounded-full   active:scale-90 "
-            onClick={(event) => {
-              addProductCart(event, data)
-              /*  showAddShopCart(data) */
-              /*  showAddCart(data) */
-            }}
-          >
-            <FaPlus />
-          </button>
-        </div>
+        {renderCheckIcon(data.id)}
       </figure>
       <p className="flex justify-evenly items-center w-[90%] my-0 mx-auto">
         <span className="font-light text-sm ">{data.title}</span>

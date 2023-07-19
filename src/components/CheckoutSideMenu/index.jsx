@@ -13,7 +13,15 @@ import './style/styleCheckout.css'
 
 //**! == Checkout Shop */
 export function CheckoutSideMenu() {
+  // = Context & State =
   const context = useContext(ShoppingCartContext)
+  // = Delete Shop =
+  const handleDelete = (id) => {
+    const filterProduct = context.cartProducts.filter(
+      (product) => product.id != id
+    )
+    context.setCartProduct(filterProduct)
+  }
 
   return (
     <aside
@@ -27,7 +35,7 @@ export function CheckoutSideMenu() {
             <FaAngleLeft />
           </li>
           <li>
-            <h2 className="font-bold text-xl">Cart Shop</h2>
+            <h2 className="font-bold text-xl">Your Cart </h2>
           </li>
           <li>
             <FaRegHeart />
@@ -47,7 +55,7 @@ export function CheckoutSideMenu() {
           </li>
         </ul>
       </div>
-      <div className="p-[10px] my-[20px ] ">
+      <div className="p-[10px] my-[20px ]  overflow-y-scroll ">
         {context.cartProducts.map((product) => (
           <OrderCard
             key={product.id}
@@ -55,6 +63,7 @@ export function CheckoutSideMenu() {
             imageUrl={product.images[0]}
             price={product.price}
             id={product.id}
+            handleDelete={handleDelete} // Function
           />
         ))}
       </div>

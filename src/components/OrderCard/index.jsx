@@ -3,7 +3,7 @@ import { FaCircleXmark } from 'react-icons/fa6'
 import './style/orderCard.css'
 //**! ===== Order Card ======= */
 export function OrderCard(props) {
-  const { id, title, imageUrl, price } = props
+  const { id, title, imageUrl, price, handleDelete } = props
   return (
     <div key={id} className="flex justify-between items-center p-3 mb-3 ">
       <div className="flex items-center gap-2">
@@ -14,11 +14,13 @@ export function OrderCard(props) {
             alt={title}
           />
         </figure>
-        <p className="text-sm font-light text-black">{title}</p>
+        <div className="flex-col">
+          <p className="text-sm font-light text-black">{title}</p>
+          <p className="text-black text-lg font-bold ">${price}</p>
+        </div>
       </div>
       <div className="">
-        <p className="text-black text-lg font-bold ">${price}</p>
-        <button className="p-[10px]">
+        <button className="p-[10px]" onClick={() => handleDelete(id)}>
           <FaCircleXmark />
         </button>
       </div>
