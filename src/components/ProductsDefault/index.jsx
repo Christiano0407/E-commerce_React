@@ -65,7 +65,6 @@ export function ProductsDefault() {
           <button className="bg-black text-white  p-[10px] text-base rounded-lg border-none ">
             Buy Now
           </button>
-          <button>Hello</button>
         </div>
       </section>
     </aside>
