@@ -1,6 +1,7 @@
 //** ==== Checkout Side Menu ===  */
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../context'
+import { OrderCard } from '../OrderCard'
 import {
   FaCircleXmark,
   FaAngleLeft,
@@ -26,7 +27,7 @@ export function CheckoutSideMenu() {
             <FaAngleLeft />
           </li>
           <li>
-            <h2 className="font-medium text-xl">Cart Shop</h2>
+            <h2 className="font-bold text-xl">Cart Shop</h2>
           </li>
           <li>
             <FaRegHeart />
@@ -46,18 +47,17 @@ export function CheckoutSideMenu() {
           </li>
         </ul>
       </div>
-      <figure className="my-4 mx-auto h-[60%]">
-        <img
-          className="w-full h-full rounded-lg object-cover bg-center bg-cover  bg-no-repeat"
-          src=""
-          alt=""
-        />
-      </figure>
-      <section className="my-4 mx-auto  p-2 flex flex-col ">
-        <p className="my-2 text-black font-bold  text-lg"></p>
-        <p className="my-2 text-black/50 font-normal text-base"></p>
-        <span className="text-black font-extrabold text-lg "></span>
-      </section>
+      <div className="p-[10px] my-[20px ] ">
+        {context.cartProducts.map((product) => (
+          <OrderCard
+            key={product.id}
+            title={product.title}
+            imageUrl={product.images[0]}
+            price={product.price}
+            id={product.id}
+          />
+        ))}
+      </div>
     </aside>
   )
 }

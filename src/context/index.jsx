@@ -17,7 +17,7 @@ export function ShoppingCartProvider({ children }) {
     description: '',
     images: [],
   })
-  // = Add Products  => Cart Shop =
+  // = Add Products  To Cart => Cart Shop =
   const [cartProducts, setCartProduct] = useState([])
 
   // == Shop Pay Open or Close ==
