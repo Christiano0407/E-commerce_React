@@ -8,6 +8,7 @@ import {
   FaRegHeart,
   FaShareNodes,
 } from 'react-icons/fa6'
+import { totalPrice } from '../../utils/index'
 //import { HiShoppingBag } from 'react-icons/hi'
 import './style/styleCheckout.css'
 
@@ -15,7 +16,7 @@ import './style/styleCheckout.css'
 export function CheckoutSideMenu() {
   // = Context & State =
   const context = useContext(ShoppingCartContext)
-  // = Delete Shop =
+  // = Delete Shop & Cart =
   const handleDelete = (id) => {
     const filterProduct = context.cartProducts.filter(
       (product) => product.id != id
@@ -69,6 +70,19 @@ export function CheckoutSideMenu() {
           />
         ))}
       </div>
+      <section className="p-[10px] w-[90%] my-[20px ] mx-auto">
+        <div className="border rounded-lg w-full h-[5px] bg-[#333] my-2 "></div>
+        <p className="p-[10px] my-[10px] mx-auto flex items-center justify-between w-[90%]">
+          <span className="font-medium text-base  text-black/60">Total:</span>
+          <span className="text-black font-bold text-xl">
+            ${totalPrice(context.cartProducts)}
+          </span>
+        </p>
+        <div className="border rounded-lg w-full h-[5px] bg-[#333] my-2 "></div>
+        <button className="w-full  border rounded-lg bg-[#111] text-[#f2f2f2] p-3 font-bold mt-3 ">
+          Go To Payment
+        </button>
+      </section>
     </aside>
   )
 }

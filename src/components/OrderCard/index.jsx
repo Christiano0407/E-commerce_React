@@ -1,9 +1,10 @@
 //** === Order Cards === Pay === */
+import PropTypes from 'prop-types'
 import { FaCircleXmark } from 'react-icons/fa6'
 import './style/orderCard.css'
 //**! ===== Order Card ======= */
-export function OrderCard(props) {
-  const { id, title, imageUrl, price, handleDelete } = props
+export function OrderCard({ id, title, imageUrl, price, handleDelete }) {
+  //const { id, title, imageUrl, price, handleDelete } = props
   return (
     <div key={id} className="flex justify-between items-center p-3 mb-3 ">
       <div className="flex items-center gap-2">
@@ -26,4 +27,12 @@ export function OrderCard(props) {
       </div>
     </div>
   )
+}
+//**?  ===  === === */
+OrderCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 }
