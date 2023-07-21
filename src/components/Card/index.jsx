@@ -73,6 +73,6 @@ export function Card({ data }) {
   )
 }
 //** === > > Props Types < < ===  */
-Card.prototype = {
+Card.propTypes = {
   data: PropTypes.object.isRequired,
 }

@@ -24,8 +24,9 @@ export function ShoppingCartProvider({ children }) {
   const [isCheckoutSideShopOpen, setCheckoutSideShopOpen] = useState(false)
   const openShop = () => setCheckoutSideShopOpen(true)
   const closeShop = () => setCheckoutSideShopOpen(false)
-
-  const [payCheckoutShop, setPayCheckoutShop] = useState({})
+  //const [payCheckoutShop, setPayCheckoutShop] = useState({})
+  // = Orders Shopping Cart =
+  const [order, setOrders] = useState([])
 
   return (
     <ShoppingCartContext.Provider
@@ -43,8 +44,8 @@ export function ShoppingCartProvider({ children }) {
         setCheckoutSideShopOpen,
         openShop,
         closeShop,
-        payCheckoutShop,
-        setPayCheckoutShop,
+        order,
+        setOrders,
       }}
     >
       {children}

@@ -1,10 +1,15 @@
 //** === Order Cards === Pay === */
+//import { useContext } from 'react'
+//import { ShoppingCartContext } from '../../context'
 import PropTypes from 'prop-types'
 import { FaCircleXmark } from 'react-icons/fa6'
+
 import './style/orderCard.css'
 //**! ===== Order Card ======= */
 export function OrderCard({ id, title, imageUrl, price, handleDelete }) {
   //const { id, title, imageUrl, price, handleDelete } = props
+  //const context = useContext(ShoppingCartContext)
+
   return (
     <div key={id} className="flex justify-between items-center p-3 mb-3 ">
       <div className="flex items-center gap-2">

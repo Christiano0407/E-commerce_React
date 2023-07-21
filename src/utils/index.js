@@ -10,3 +10,12 @@ export const totalPrice = (products) => {
   products.forEach((product) => (sum += product.price))
   return sum
 }
+/**
+ * return products.reduce((sum, product) => sum + product.price)
+ */
+
+/**
+ * export const totalPrice = (products) => {
+    return products.reduce((sum, product) => sum + product.price, 0)
+} 
+ */
