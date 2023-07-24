@@ -9,6 +9,11 @@ import './style/orderCard.css'
 export function OrderCard({ id, title, imageUrl, price, handleDelete }) {
   //const { id, title, imageUrl, price, handleDelete } = props
   //const context = useContext(ShoppingCartContext)
+  let FaCircleXmarks
+
+  if (handleDelete) {
+    FaCircleXmarks = <FaCircleXmark />
+  }
 
   return (
     <div key={id} className="flex justify-between items-center p-3 mb-3 ">
@@ -27,7 +32,7 @@ export function OrderCard({ id, title, imageUrl, price, handleDelete }) {
       </div>
       <div className="">
         <button className="p-[10px]" onClick={() => handleDelete(id)}>
-          <FaCircleXmark />
+          {FaCircleXmarks}
         </button>
       </div>
     </div>

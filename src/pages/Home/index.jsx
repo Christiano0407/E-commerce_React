@@ -1,8 +1,8 @@
 //** === === Home Page === === */
 import { useState, useEffect } from 'react'
-import { Layout } from '../../components/Layout/index'
 import { Card } from '../../components/Card'
 import { ProductsDefault } from '../../components/ProductsDefault'
+import { Layout } from '../../components/Layout/index'
 
 export function Home() {
   const [data, setData] = useState(null)

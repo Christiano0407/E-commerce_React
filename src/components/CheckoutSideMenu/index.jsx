@@ -1,4 +1,5 @@
 //** ==== Checkout Side Menu ===  */
+import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../context'
 import { OrderCard } from '../OrderCard'
@@ -25,6 +26,19 @@ export function CheckoutSideMenu() {
 
     context.setCount(context.count - 1)
   }
+  // = Orders Checkout =
+  const handleOrderCheckout = () => {
+    const orderToAdd = {
+      data: '20.07.23',
+      product: context.cartProducts,
+      totalProducts: context.cartProducts.length,
+      total: totalPrice(context.cartProducts),
+    }
+    context.setOrders([...context.order, orderToAdd])
+    context.setCartProduct([])
+    context.setCount(0)
+    //context.setCheckoutSideShopOpen()
+  }
 
   return (
     <aside
@@ -38,7 +52,7 @@ export function CheckoutSideMenu() {
             <FaAngleLeft />
           </li>
           <li>
-            <h2 className="font-bold text-xl">Your Cart </h2>
+            <h2 className="font-bold text-xl">My Order </h2>
           </li>
           <li>
             <FaRegHeart />
@@ -58,7 +72,7 @@ export function CheckoutSideMenu() {
           </li>
         </ul>
       </div>
-      <div className="p-[10px] my-[20px ]  overflow-y-scroll ">
+      <div className="p-[10px] my-[20px ]  overflow-y-scroll flex-1 ">
         {context.cartProducts.map((product) => (
           <OrderCard
             key={product.id}
@@ -79,9 +93,14 @@ export function CheckoutSideMenu() {
           </span>
         </p>
         <div className="border rounded-lg w-full h-[5px] bg-[#333] my-2 "></div>
-        <button className="w-full  border rounded-lg bg-[#111] text-[#f2f2f2] p-3 font-bold mt-3 ">
-          Go To Payment
-        </button>
+        <Link to="/my-orders/last" relative="path">
+          <button
+            className="w-full  border rounded-lg bg-[#111] text-[#f2f2f2] p-3 font-bold mt-3  active:scale-90 "
+            onClick={() => handleOrderCheckout}
+          >
+            Go To Payment
+          </button>
+        </Link>
       </section>
     </aside>
   )
