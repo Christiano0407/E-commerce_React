@@ -32,12 +32,12 @@ export function CheckoutSideMenu() {
       data: '20.07.23',
       product: context.cartProducts,
       totalProducts: context.cartProducts.length,
-      total: totalPrice(context.cartProducts),
+      price: totalPrice(context.cartProducts),
     }
     context.setOrders([...context.order, orderToAdd])
     context.setCartProduct([])
-    context.setCount(0)
-    //context.setCheckoutSideShopOpen()
+    /* context.setCount(0) */
+    context.setCheckoutSideShopOpen()
   }
 
   return (
@@ -93,10 +93,10 @@ export function CheckoutSideMenu() {
           </span>
         </p>
         <div className="border rounded-lg w-full h-[5px] bg-[#333] my-2 "></div>
-        <Link to="/my-orders/last" relative="path">
+        <Link to="/my-orders/last">
           <button
             className="w-full  border rounded-lg bg-[#111] text-[#f2f2f2] p-3 font-bold mt-3  active:scale-90 "
-            onClick={() => handleOrderCheckout}
+            onClick={() => handleOrderCheckout()}
           >
             Go To Payment
           </button>

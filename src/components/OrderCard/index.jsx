@@ -1,4 +1,4 @@
-//** === Order Cards === Pay === */
+//** === Order Card === Pay === */
 //import { useContext } from 'react'
 //import { ShoppingCartContext } from '../../context'
 import PropTypes from 'prop-types'
@@ -6,8 +6,8 @@ import { FaCircleXmark } from 'react-icons/fa6'
 
 import './style/orderCard.css'
 //**! ===== Order Card ======= */
-export function OrderCard({ id, title, imageUrl, price, handleDelete }) {
-  //const { id, title, imageUrl, price, handleDelete } = props
+export function OrderCard(props) {
+  const { id, title, imageUrl, price, handleDelete } = props
   //const context = useContext(ShoppingCartContext)
   let FaCircleXmarks
 

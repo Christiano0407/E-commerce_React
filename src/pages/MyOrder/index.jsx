@@ -1,8 +1,11 @@
+//** ============ Page: My Order 01 ============ */
 /* eslint-disable react/jsx-no-undef */
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../context'
+import { Link } from 'react-router-dom'
 import { Layout } from '../../components/Layout/index'
 import { OrderCard } from '../../components/OrderCard/index'
+import { FaAngleLeft } from 'react-icons/fa6'
 
 export function MyOrder() {
   const context = useContext(ShoppingCartContext)
@@ -12,7 +15,17 @@ export function MyOrder() {
   const latestOrderProducts = context.order?.slice(-1)?.[0]?.products || []
   return (
     <Layout>
-      <h1>My Order</h1>
+      <div className="flex w-[150px] items-center  justify-between p-[10px] ">
+        <Link to={`/my-orders`}>
+          <button
+            className=" border p-[5px]  rounded-lg bg-[#111] text-[#f2f2f2]  font-bold  active:scale-90"
+            onClick={() => console.log('Orders 02')}
+          >
+            <FaAngleLeft />
+          </button>
+        </Link>
+        <h1>My Order 01</h1>
+      </div>
       <div className="p-[10px] my-[20px ] flex flex-col w-80 ">
         {latestOrderProducts.map((product) => (
           <OrderCard
